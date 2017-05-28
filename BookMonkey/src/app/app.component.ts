@@ -1,3 +1,4 @@
+import { Book } from './shared/book';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'bm works!';
+  listOn = true;
+  detailsOn = false;
+
+  book: Book;
+
+  showList() {
+    this.listOn = true;
+    this.detailsOn = false;
+  }
+
+  showDetails(book: Book) {
+    this.book = book;
+    this.listOn = false;
+    this.detailsOn = true;
+  }
 }
