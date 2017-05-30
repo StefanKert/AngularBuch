@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  bookSelected(book: Book){
-    this.router.navigate(['../books', book.isbn], {relativeTo: this.route})
+  bookSelected(book: Book) {
+    this.router.navigate(['../books', book.isbn], {relativeTo: this.route});
   }
 }
