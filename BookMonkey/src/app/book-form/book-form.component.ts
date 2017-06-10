@@ -1,3 +1,4 @@
+import { BookValidators } from './../shared/book.validators';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Thumbnail } from 'app/shared/thumbnail';
 import { BookFormErrorMessages } from './book-form-error-messages';
@@ -48,8 +49,9 @@ export class BookFormComponent implements OnInit {
       isbn: [this.book.isbn, [
         Validators.required,
         Validators.minLength(10),
-        Validators.maxLength(13)
-      ]],
+        Validators.maxLength(13),
+        BookValidators.isbnFormat
+      ], this.isUpdatingBook ? null : BookValidators.isbnExists(this.bs)],
       description: this.book.description,
       authors: this.authors,
       thumbnails: this.thumbnails,
@@ -59,7 +61,7 @@ export class BookFormComponent implements OnInit {
   }
 
   buildAuthorsArray() {
-    this.authors = this.fb.array(this.book.authors, Validators.required);
+    this.authors = this.fb.array(this.book.authors, BookValidators.atLeastOneAuthor);
   }
 
   buildThumbnailsArray() {
