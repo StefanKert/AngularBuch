@@ -1,3 +1,5 @@
+import { BookResolverService } from './shared/book-resolver.service';
+import { CanNavigateToAdminGuard } from './can-navigate-to-admin.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { BookStoreService } from './shared/book-store.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +24,8 @@ import { SearchComponent } from './search/search.component';
   ],
   providers: [
     BookStoreService,
+    CanNavigateToAdminGuard,
+    BookResolverService,
     { provide: LOCALE_ID, useValue: 'de'}
   ],
   bootstrap: [AppComponent]
