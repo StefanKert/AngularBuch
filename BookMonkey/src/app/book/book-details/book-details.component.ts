@@ -1,5 +1,5 @@
-import { BookFactory } from './../shared/book-factory';
-import { Book } from './../shared/book';
+import { BookFactory } from './../../shared/book-factory';
+import { Book } from './../../shared/book';
 import { Component, OnInit } from '@angular/core';
 import { BookStoreService } from 'app/shared/book-store.service';
 import { ActivatedRoute, Router } from '@angular/router';

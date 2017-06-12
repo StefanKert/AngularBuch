@@ -1,4 +1,5 @@
-import { BookStoreService } from './../shared/book-store.service';
+import { BookStoreService } from './../../shared/book-store.service';
+import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'app/shared/book';
 import { Thumbnail } from 'app/shared/thumbnail';
@@ -9,11 +10,11 @@ import { Thumbnail } from 'app/shared/thumbnail';
   styles: []
 })
 export class BookListComponent implements OnInit {
-  books: Book[];
+  books$: Observable<Book[]>;
 
-  constructor(private bs: BookStoreService) {}
+  constructor(private bs: BookStoreService) { }
 
   ngOnInit() {
-    this.bs.getAll().subscribe(res => this.books = res);
+    this.books$ = this.bs.getAll();
   }
 }

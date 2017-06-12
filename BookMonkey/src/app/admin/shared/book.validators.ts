@@ -1,5 +1,5 @@
+import { BookStoreService } from './../../shared/book-store.service';
 import { Observable } from 'rxjs/Observable';
-import { BookStoreService } from './book-store.service';
 import { FormControl, FormArray } from '@angular/forms';
 
 export class BookValidators {

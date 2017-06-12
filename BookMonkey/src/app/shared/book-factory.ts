@@ -1,10 +1,10 @@
 import { Book } from './book';
 export class BookFactory {
   static empty(): Book {
-    return new Book('', '', [''], new Date(), '', 0, [{url: '', title: ''}], '')
+    return new Book('', '', [''], new Date(), '', 0, [{url: '', title: ''}], '');
   }
 
-  static fromObject(rawBook: any): Book{
+  static fromObject(rawBook: any): Book {
     return new Book(
       rawBook.isbn,
       rawBook.title,
